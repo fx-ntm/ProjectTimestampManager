@@ -47,7 +47,6 @@
             label1.Size = new Size(225, 21);
             label1.TabIndex = 0;
             label1.Text = "Project Timestamp Manager";
-            label1.Click += label1_Click;
             // 
             // listBox1
             // 
@@ -67,6 +66,7 @@
             button1.TabIndex = 4;
             button1.Text = "New Project";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label2
             // 
@@ -76,7 +76,6 @@
             label2.Size = new Size(172, 15);
             label2.TabIndex = 5;
             label2.Text = "Please select an existing project";
-            label2.Click += label2_Click_1;
             // 
             // label3
             // 
@@ -96,7 +95,6 @@
             label4.Size = new Size(66, 15);
             label4.TabIndex = 7;
             label4.Text = "Project list";
-            label4.Click += label4_Click;
             // 
             // button2
             // 
@@ -107,6 +105,7 @@
             button2.TabIndex = 8;
             button2.Text = "Open";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -117,6 +116,7 @@
             button3.TabIndex = 9;
             button3.Text = "Close the Program";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // ProjectSelectionForm
             // 

@@ -79,7 +79,6 @@
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(198, 23);
             numericUpDown1.TabIndex = 4;
-            numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
             // 
             // label3
             // 
@@ -90,7 +89,6 @@
             label3.Size = new Size(148, 15);
             label3.TabIndex = 5;
             label3.Text = "Time Allocation (in hours):";
-            label3.Click += this.label3_Click;
             // 
             // label4
             // 
@@ -101,7 +99,6 @@
             label4.Size = new Size(169, 21);
             label4.TabIndex = 6;
             label4.Text = "Create a New Project";
-            label4.Click += label4_Click;
             // 
             // button1
             // 
@@ -112,6 +109,7 @@
             button1.TabIndex = 7;
             button1.Text = "Create";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // ProjectCreator
             // 
