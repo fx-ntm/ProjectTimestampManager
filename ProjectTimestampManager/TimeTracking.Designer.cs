@@ -54,7 +54,6 @@
             label1.Size = new Size(80, 15);
             label1.TabIndex = 1;
             label1.Text = "Elapsed Time:";
-            label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -64,7 +63,6 @@
             label2.Size = new Size(38, 15);
             label2.TabIndex = 2;
             label2.Text = "label2";
-            label2.Click += this.label2_Click;
             // 
             // label3
             // 
@@ -74,7 +72,6 @@
             label3.Size = new Size(116, 15);
             label3.TabIndex = 3;
             label3.Text = "Total Reserved Time:";
-            label3.Click += label3_Click;
             // 
             // label4
             // 
@@ -84,7 +81,6 @@
             label4.Size = new Size(38, 15);
             label4.TabIndex = 4;
             label4.Text = "label4";
-            label4.Click += label4_Click;
             // 
             // dataGridView1
             // 
@@ -106,6 +102,7 @@
             button1.TabIndex = 6;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -116,6 +113,7 @@
             button2.TabIndex = 7;
             button2.Text = "button2";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // TimeTracking
             // 
