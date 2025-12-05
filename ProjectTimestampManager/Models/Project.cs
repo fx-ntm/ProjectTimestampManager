@@ -23,5 +23,9 @@ namespace ProjectTimestampManager.Models
         /// AllocatedHours - The total allocated hours for the project
         /// </summary>
         public required int AllocatedHours { get; set; }
+        /// <summary>
+        /// Deadline - The date-time entry, after which no new project time entries can be added
+        /// </summary>
+        public required DateTime Deadline { get; set; }
     }
 }
