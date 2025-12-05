@@ -31,7 +31,8 @@ namespace ProjectTimestampManager.Services
                         {
                             Id = reader.GetInt32(0),
                             Name = reader.GetString(1),
-                            AllocatedHours = reader.GetInt32(2)
+                            AllocatedHours = reader.GetInt32(2),
+                            Deadline = reader.GetDateTime(3)
                         });
                     }
                     reader.Close();
@@ -81,7 +82,7 @@ namespace ProjectTimestampManager.Services
         /// <summary>
         /// AddProject - Adds a new project to the database (db.projects)
         /// </summary>
-        public void AddProject(string name, int time)
+        public void AddProject(string name, int time, DateTime deadline)
         {
             SqliteConnection connection = DBConnectionHelper.GetConnection();
             try
@@ -89,9 +90,10 @@ namespace ProjectTimestampManager.Services
                 using (connection)
                 {
                     SqliteCommand command = connection.CreateCommand();
-                    command.CommandText = "INSERT INTO projects (name, allocated_hours) VALUES ($name, $allocated_hours)";
+                    command.CommandText = "INSERT INTO projects (name, allocated_hours, deadline) VALUES ($name, $allocated_hours, $deadline)";
                     command.Parameters.AddWithValue("$name", name);
                     command.Parameters.AddWithValue("$allocated_hours", time);
+                    command.Parameters.AddWithValue("$deadline", deadline);
                     command.ExecuteNonQuery();
                 }
             }
