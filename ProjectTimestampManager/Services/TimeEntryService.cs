@@ -1,9 +1,4 @@
 ﻿using ProjectTimestampManager.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
 using ProjectTimestampManager.Helpers;
 
@@ -21,7 +16,7 @@ namespace ProjectTimestampManager.Services
             using (connection)
             {
                 SqliteCommand command = connection.CreateCommand();
-                command.CommandText = "SELECT * FROM time_entries";
+                command.CommandText = "SELECT * FROM Time_Entries";
                 SqliteDataReader reader = command.ExecuteReader();
                 while(reader.Read())
                 {
@@ -50,7 +45,7 @@ namespace ProjectTimestampManager.Services
             using (connection)
             {
                 SqliteCommand command = connection.CreateCommand();
-                command.CommandText = "SELECT * FROM time_entries WHERE id = $id";
+                command.CommandText = "SELECT * FROM Time_Entries WHERE id = $id";
                 command.Parameters.AddWithValue("$id", id);
                 SqliteDataReader reader = command.ExecuteReader();
                 while (reader.Read())
@@ -83,7 +78,7 @@ namespace ProjectTimestampManager.Services
                 using (connection)
                 {
                     SqliteCommand command = connection.CreateCommand();
-                    command.CommandText = "SELECT * FROM time_entries WHERE projectid = $projectId";
+                    command.CommandText = "SELECT * FROM Time_Entries WHERE projectid = $projectId";
                     command.Parameters.AddWithValue("$projectId", projectId);
                     SqliteDataReader reader = command.ExecuteReader();
                     while (reader.Read())
@@ -118,7 +113,7 @@ namespace ProjectTimestampManager.Services
             using (connection)
             {
                 SqliteCommand command = connection.CreateCommand();
-                command.CommandText = "INSERT INTO time_entries (projectid, entry_date, start_time, end_time, duration_minutes) " +
+                command.CommandText = "INSERT INTO Time_Entries (projectid, entry_date, start_time, end_time, duration_minutes) " +
                     "VALUES ($projectid, $entrydate, $start, $stop, $duration)";
                 command.Parameters.AddWithValue("$projectid", projectid);
                 command.Parameters.AddWithValue("$entrydate", entrydate);
@@ -143,7 +138,7 @@ namespace ProjectTimestampManager.Services
                 using (connection)
                 {
                     SqliteCommand command = connection.CreateCommand();
-                    command.CommandText = "INSERT INTO time_entries (projectid, entry_date, start_time) " +
+                    command.CommandText = "INSERT INTO Time_Entries (projectid, entry_date, start_time) " +
                         "VALUES ($projectid, $entrydate, $start)";
                     command.Parameters.AddWithValue("$projectid", projectId);
                     command.Parameters.AddWithValue("$entrydate", DateTime.Now.Date);
@@ -171,7 +166,7 @@ namespace ProjectTimestampManager.Services
                 using (connection)
                 {
                     SqliteCommand command = connection.CreateCommand();
-                    command.CommandText = "UPDATE time_entries SET end_time = $stop, duration_minutes = $duration " +
+                    command.CommandText = "UPDATE Time_Entries SET end_time = $stop, duration_minutes = $duration " +
                         "WHERE projectid = $projectid AND end_time IS NULL";
                     command.Parameters.AddWithValue("$projectid", entry.ProjectId);
                     command.Parameters.AddWithValue("$stop", DateTime.Now);

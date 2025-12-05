@@ -9,7 +9,7 @@ namespace ProjectTimestampManager.Models
     /// <summary>
     /// Project - Model for table db.projects, represents a project with allocated hours
     /// </summary>
-    internal class Project
+    public class Project
     {
         /// <summary>
         /// Id - Primary Key of the project

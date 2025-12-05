@@ -1,9 +1,4 @@
 ﻿using ProjectTimestampManager.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ProjectTimestampManager.Helpers;
 using Microsoft.Data.Sqlite;
 
@@ -23,7 +18,7 @@ namespace ProjectTimestampManager.Services
                 using (connection)
                 {
                     SqliteCommand command = connection.CreateCommand();
-                    command.CommandText = "SELECT * FROM projects";
+                    command.CommandText = "SELECT * FROM Projects";
                     SqliteDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
@@ -41,7 +36,7 @@ namespace ProjectTimestampManager.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error: {ex.Message}");
+                Console.WriteLine($"Error in GetAllProjects: {ex.Message}");
                 return projects;
             }
         }
@@ -57,7 +52,7 @@ namespace ProjectTimestampManager.Services
                 using (connection)
                 {
                     SqliteCommand command = connection.CreateCommand();
-                    command.CommandText = "SELECT * FROM projects WHERE id = $id";
+                    command.CommandText = "SELECT * FROM Projects WHERE id = $id";
                     command.Parameters.AddWithValue("$id", id);
                     SqliteDataReader reader = command.ExecuteReader();
                     while (reader.Read())
@@ -66,15 +61,17 @@ namespace ProjectTimestampManager.Services
                         {
                             Id = reader.GetInt32(0),
                             Name = reader.GetString(1),
-                            AllocatedHours = reader.GetInt32(2)
+                            AllocatedHours = reader.GetInt32(2),
+                            Deadline = reader.GetDateTime(3)
                         };
                     }
                     reader.Close();
                     return null;
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
-                Console.WriteLine($"Error: {ex.Message}");
+                Console.WriteLine($"Error in GetProjectById: {ex.Message}");
                 return null;
             }
             
@@ -90,7 +87,7 @@ namespace ProjectTimestampManager.Services
                 using (connection)
                 {
                     SqliteCommand command = connection.CreateCommand();
-                    command.CommandText = "INSERT INTO projects (name, allocated_hours, deadline) VALUES ($name, $allocated_hours, $deadline)";
+                    command.CommandText = "INSERT INTO Projects (name, allocated_hours, deadline) VALUES ($name, $allocated_hours, $deadline)";
                     command.Parameters.AddWithValue("$name", name);
                     command.Parameters.AddWithValue("$allocated_hours", time);
                     command.Parameters.AddWithValue("$deadline", deadline);
@@ -99,7 +96,7 @@ namespace ProjectTimestampManager.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error: {ex.Message}");
+                Console.WriteLine($"Error in AddProject: {ex.Message}");
             }
         }
     }

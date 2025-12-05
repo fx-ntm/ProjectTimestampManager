@@ -9,7 +9,7 @@ namespace ProjectTimestampManager.Models
     /// <summary>
     /// TimeEntry - Model for table db.time_entries, represents a time entry for a project
     /// </summary>
-    internal class TimeEntry
+    public class TimeEntry
     {
         /// <summary>
         /// Id - Primary Key of the time entry

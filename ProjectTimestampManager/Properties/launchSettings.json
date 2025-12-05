@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ProjectTimestampManager": {
+      "commandName": "Project",
+      "sqlDebugging": false
+    }
+  }
+}
