@@ -181,5 +181,30 @@ namespace ProjectTimestampManager.Services
                 return entry;
             }
         }
+
+        /// <summary>
+        /// GetTotalMinutesForProject - Get total tracked minutes for a project
+        /// </summary>
+        public int GetTotalMinutesForProject(int projectId)
+        {
+            int totalMinutes = 0;
+            SqliteConnection connection = DBConnectionHelper.GetConnection();
+            try
+            {
+                using (connection)
+                {
+                    SqliteCommand command = connection.CreateCommand();
+                    command.CommandText = "SELECT COALESCE(SUM(duration_minutes), 0) FROM Time_Entries WHERE projectid = $projectId";
+                    command.Parameters.AddWithValue("$projectId", projectId);
+                    var result = command.ExecuteScalar();
+                    totalMinutes = Convert.ToInt32(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in GetTotalMinutesForProject: {ex.Message}");
+            }
+            return totalMinutes;
+        }
     }
 }

@@ -36,6 +36,16 @@
             label4 = new Label();
             button2 = new Button();
             button3 = new Button();
+            menuStrip1 = new MenuStrip();
+            juhjhToolStripMenuItem = new ToolStripMenuItem();
+            ujhggToolStripMenuItem = new ToolStripMenuItem();
+            viewProjectsToolStripMenuItem = new ToolStripMenuItem();
+            createProjectToolStripMenuItem = new ToolStripMenuItem();
+            finishProjectToolStripMenuItem = new ToolStripMenuItem();
+            finishedProjectToolStripMenuItem = new ToolStripMenuItem();
+            version10ToolStripMenuItem = new ToolStripMenuItem();
+            gitHubFxntmToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -118,6 +128,70 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { juhjhToolStripMenuItem, ujhggToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(437, 24);
+            menuStrip1.TabIndex = 10;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // juhjhToolStripMenuItem
+            // 
+            juhjhToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { viewProjectsToolStripMenuItem, finishProjectToolStripMenuItem, createProjectToolStripMenuItem, finishedProjectToolStripMenuItem });
+            juhjhToolStripMenuItem.Name = "juhjhToolStripMenuItem";
+            juhjhToolStripMenuItem.Size = new Size(56, 20);
+            juhjhToolStripMenuItem.Text = "Project";
+            juhjhToolStripMenuItem.Click += juhjhToolStripMenuItem_Click;
+            // 
+            // ujhggToolStripMenuItem
+            // 
+            ujhggToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { version10ToolStripMenuItem, gitHubFxntmToolStripMenuItem });
+            ujhggToolStripMenuItem.Name = "ujhggToolStripMenuItem";
+            ujhggToolStripMenuItem.Size = new Size(40, 20);
+            ujhggToolStripMenuItem.Text = "Info";
+            // 
+            // viewProjectsToolStripMenuItem
+            // 
+            viewProjectsToolStripMenuItem.Name = "viewProjectsToolStripMenuItem";
+            viewProjectsToolStripMenuItem.Size = new Size(180, 22);
+            viewProjectsToolStripMenuItem.Text = "Open Project ...";
+            viewProjectsToolStripMenuItem.Click += viewProjectsToolStripMenuItem_Click;
+            // 
+            // createProjectToolStripMenuItem
+            // 
+            createProjectToolStripMenuItem.Name = "createProjectToolStripMenuItem";
+            createProjectToolStripMenuItem.Size = new Size(180, 22);
+            createProjectToolStripMenuItem.Text = "Create Project";
+            createProjectToolStripMenuItem.Click += createProjectToolStripMenuItem_Click;
+            // 
+            // finishProjectToolStripMenuItem
+            // 
+            finishProjectToolStripMenuItem.Name = "finishProjectToolStripMenuItem";
+            finishProjectToolStripMenuItem.Size = new Size(180, 22);
+            finishProjectToolStripMenuItem.Text = "Finish Project ...";
+            finishProjectToolStripMenuItem.Click += finishProjectToolStripMenuItem_Click;
+            // 
+            // finishedProjectToolStripMenuItem
+            // 
+            finishedProjectToolStripMenuItem.Name = "finishedProjectToolStripMenuItem";
+            finishedProjectToolStripMenuItem.Size = new Size(180, 22);
+            finishedProjectToolStripMenuItem.Text = "Finished Projects";
+            finishedProjectToolStripMenuItem.Click += finishedProjectToolStripMenuItem_Click;
+            // 
+            // version10ToolStripMenuItem
+            // 
+            version10ToolStripMenuItem.Name = "version10ToolStripMenuItem";
+            version10ToolStripMenuItem.Size = new Size(180, 22);
+            version10ToolStripMenuItem.Text = "Version 1.0";
+            // 
+            // gitHubFxntmToolStripMenuItem
+            // 
+            gitHubFxntmToolStripMenuItem.Name = "gitHubFxntmToolStripMenuItem";
+            gitHubFxntmToolStripMenuItem.Size = new Size(180, 22);
+            gitHubFxntmToolStripMenuItem.Text = "GitHub @ fx-ntm";
+            // 
             // ProjectSelectionForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -131,8 +205,11 @@
             Controls.Add(button1);
             Controls.Add(listBox1);
             Controls.Add(label1);
+            Controls.Add(menuStrip1);
             Name = "ProjectSelectionForm";
             Text = "Form1";
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -147,5 +224,14 @@
         private Label label4;
         private Button button2;
         private Button button3;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem juhjhToolStripMenuItem;
+        private ToolStripMenuItem ujhggToolStripMenuItem;
+        private ToolStripMenuItem viewProjectsToolStripMenuItem;
+        private ToolStripMenuItem createProjectToolStripMenuItem;
+        private ToolStripMenuItem finishProjectToolStripMenuItem;
+        private ToolStripMenuItem finishedProjectToolStripMenuItem;
+        private ToolStripMenuItem version10ToolStripMenuItem;
+        private ToolStripMenuItem gitHubFxntmToolStripMenuItem;
     }
 }

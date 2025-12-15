@@ -99,5 +99,28 @@ namespace ProjectTimestampManager.Services
                 Console.WriteLine($"Error in AddProject: {ex.Message}");
             }
         }
+
+        /// <summary>
+        /// UpdateProjectDeadline - Update a project deadline
+        /// </summary>
+        public void UpdateProjectDeadline(int projectId, DateTime newDeadline)
+        {
+            SqliteConnection connection = DBConnectionHelper.GetConnection();
+            try
+            {
+                using (connection)
+                {
+                    SqliteCommand command = connection.CreateCommand();
+                    command.CommandText = "UPDATE Projects SET deadline = $deadline WHERE id = $id";
+                    command.Parameters.AddWithValue("$deadline", newDeadline);
+                    command.Parameters.AddWithValue("$id", projectId);
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in UpdateProjectDeadline: {ex.Message}");
+            }
+        }
     }
 }
